@@ -66,21 +66,24 @@ const HomeScreen = ({ navigation }) => {
         keyExtractor={item => item.id.toString()}
         renderItem={({ item }) => {
           return (
-            <View >
+            <>
               <TouchableOpacity
                 onPress={() => navigation.navigate("Details", {
-                  id: item.id
+                  id: item.id,
+                  media_type: item.media_type,
+                  filters:filters,
+                  configuration: configuration,
                 })}
                 style={styles.container}>
                 <Image
                   style={styles.image}
                   source={{
-                    uri: configuration.images.base_url + configuration.images.poster_sizes[2].concat(filters[2].active ? item.profile_path : item.poster_path),
+                    uri: configuration.images.base_url + configuration.images.poster_sizes[2].concat(filters[2].active || (item.media_type == "person") ? item.profile_path : item.poster_path),
                   }}
                 />
                 <Text style={styles.movieTittle}>{[item.original_title].concat(item.name)}</Text>
               </TouchableOpacity>
-            </View>
+            </>
           );
         }
         }

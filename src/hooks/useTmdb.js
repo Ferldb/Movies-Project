@@ -46,7 +46,7 @@ const useTmdb = () => {
         }
     }
 
-    return ([results, configuration,  searchTmdb,configurationTmdb]);
+    return ([results, configuration,  searchTmdb, configurationTmdb]);
     
 }
 

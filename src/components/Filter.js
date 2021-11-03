@@ -17,6 +17,7 @@ const Filter = ({ results, onPress }) => {
 }
 
 const styles = StyleSheet.create({
+    
     filter: {
         color: 'black',
         width: 85,
